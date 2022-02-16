@@ -1,0 +1,35 @@
+{
+    "name": "myplugin/fwsdealerplugin",
+    "description": "Plugin with custom post type for locate and contact dealers, using google maps",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Benjamin Pelto",
+            "email": "benjophp@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "inpsyde/php-coding-standards": "^1@dev"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Inpsyde\\CodingStandard\\Tests\\": [
+                "inc/"
+            ]
+        }
+    },
+    "scripts" : {
+        "cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+        "phpcompat": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs -p . --standard=PHPCompatibility --ignore=*/vendor/*,*tests/fixtures/* --extensions=php --basepath=./ --runtime-set testVersion 7.0-",
+        "tests": "@php ./vendor/phpunit/phpunit/phpunit",
+        "tests:no-cov": "@php ./vendor/phpunit/phpunit/phpunit --no-coverage",
+        "psalm": "@php ./vendor/vimeo/psalm/psalm --no-cache",
+        "qa": [
+            "@cs",
+            "@phpcompat",
+            "@tests:no-cov",
+            "@psalm"
+        ]
+    }
+}
